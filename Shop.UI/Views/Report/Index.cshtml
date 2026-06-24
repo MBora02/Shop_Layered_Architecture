@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Raporlar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-dark text-white">
+            <h4 class="mb-0">📊 Rapor Paneli</h4>
+        </div>
+
+        <div class="card-body">
+
+            <p class="text-muted">
+                Aşağıdan rapor türünü seçiniz:
+            </p>
+
+            <div class="row g-3">
+
+                <!-- JOIN 1 -->
+                <div class="col-md-4">
+                    <a asp-controller="Report" asp-action="CustomerOrderReport" 
+                    class="btn btn-primary w-100 p-3">
+                        👤 + 🛒 Customer - Order (JOIN 1)
+                    </a>
+                </div>
+
+                <!-- JOIN 2 -->
+                <div class="col-md-4">
+                    <a asp-controller="Report" asp-action="OrderProductReport" class="btn btn-info w-100 p-3">
+                        🛒 + 📦 Order - Product (JOIN 2)
+                    </a>
+                </div>
+
+                <!-- JOIN 3 -->
+                <div class="col-md-4">
+                    <a asp-controller="Report" asp-action="CustomerProductReport" class="btn btn-secondary w-100 p-3">
+                        👤 + 📦 3 TABLO JOIN
+                    </a>
+                </div>
+
+                <!-- GROUP BY -->
+                <div class="col-md-6">
+                    <a asp-controller="Report" asp-action="CustomerOrderCount" class="btn btn-success w-100 p-3">
+                        📊 GROUP BY - Müşteri Sipariş Sayısı
+                    </a>
+                </div>
+
+                <!-- LINQ -->
+                <div class="col-md-6">
+                    <a asp-controller="Report" asp-action="HighStockProducts" class="btn btn-warning w-100 p-3">
+                        ⚡ LINQ - Kritik Stok Ürünleri
+                    </a>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

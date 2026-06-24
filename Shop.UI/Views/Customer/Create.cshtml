@@ -1,0 +1,34 @@
+﻿@model Shop.Model.Customer
+
+<div class="card">
+    <div class="card-header">
+        <h4>Yeni Müşteri</h4>
+    </div>
+
+    <div class="card-body">
+
+        <form asp-action="Create" method="post">
+
+            <input asp-for="FirstName" class="form-control" placeholder="Ad" />
+            <br />
+
+            <input asp-for="LastName" class="form-control" placeholder="Soyad" />
+            <br />
+
+            <input asp-for="City" class="form-control" placeholder="Şehir" />
+            <br />
+
+            <input asp-for="Age" class="form-control" placeholder="Yaş" />
+            <br />
+
+            <input asp-for="Phone" class="form-control" placeholder="Telefon" />
+            <br />
+
+            <button type="submit" class="btn btn-success">
+                Kaydet
+            </button>
+
+        </form>
+
+    </div>
+</div>

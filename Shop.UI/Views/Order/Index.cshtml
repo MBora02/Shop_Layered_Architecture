@@ -1,0 +1,83 @@
+﻿@model List<Shop.Model.Order>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card">
+
+            <div class="card-header">
+                <div class="d-flex align-items-center">
+                    <h4 class="card-title">Sipariş Listesi</h4>
+
+                    <a asp-action="Create"
+                       class="btn btn-primary btn-round ms-auto">
+                        <i class="fa fa-plus"></i>
+                        Yeni Sipariş
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-body">
+
+                <div class="table-responsive">
+
+                    <table class="table table-striped table-hover">
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Müşteri</th>
+                                <th>Ürün</th>
+                                <th>Adet</th>
+                                <th>Birim Fiyat</th>
+                                <th>Durum</th>
+                                <th>Tarih</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.OrderId</td>
+                                    <td>@item.Customer?.FirstName</td>
+                                    <td>@item.Product?.ProductName</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.UnitPrice</td>
+                                    <td>@item.Status</td>
+                                    <td>@item.OrderDate.ToShortDateString()</td>
+
+                                    <td>
+                                        <div class="d-flex gap-2">
+
+                                            <a asp-action="Edit"
+                                               asp-route-id="@item.OrderId"
+                                               class="btn btn-sm btn-primary">
+                                                Edit
+                                            </a>
+
+                                            <a asp-action="Delete"
+                                               asp-route-id="@item.OrderId"
+                                               class="btn btn-sm btn-danger">
+                                                Delete
+                                            </a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

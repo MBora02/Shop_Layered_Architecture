@@ -1,0 +1,52 @@
+﻿@model List<Shop.Model.Product>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card">
+
+            <div class="card-header">
+                <div class="d-flex align-items-center">
+                    <h4 class="card-title">Kritik Stok Ürünleri</h4>
+                </div>
+            </div>
+
+            <div class="card-body">
+
+                <div class="table-responsive">
+
+                    <table class="table table-striped table-hover">
+
+                        <thead>
+                            <tr>
+                                <th>Ürün Adı</th>
+                                <th>Kategori</th>
+                                <th>Stok</th>
+                                <th>Kritik Seviye</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.ProductName</td>
+                                    <td>@item.Category</td>
+                                    <td>@item.Stock</td>
+                                    <td>@item.CriticalStockLevel</td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

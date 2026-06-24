@@ -1,0 +1,81 @@
+﻿@model List<Shop.Model.Customer>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+
+            ```
+            <div class="card-header">
+                <div class="d-flex align-items-center">
+                    <h4 class="card-title">Müşteri Listesi</h4>
+
+                    <a asp-action="Create"
+                       class="btn btn-primary btn-round ms-auto">
+                        <i class="fa fa-plus"></i>
+                        Yeni Müşteri
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="table-responsive">
+
+                    <table class="display table table-striped table-hover">
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ad</th>
+                                <th>Soyad</th>
+                                <th>Şehir</th>
+                                <th>Yaş</th>
+                                <th>Telefon</th>
+                                <th>Kayıt Tarihi</th>
+                                <th width="150">İşlemler</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.CustomerId</td>
+                                    <td>@item.FirstName</td>
+                                    <td>@item.LastName</td>
+                                    <td>@item.City</td>
+                                    <td>@item.Age</td>
+                                    <td>@item.Phone</td>
+                                    <td>@item.RegisterDate.ToShortDateString()</td>
+
+                                    <td>
+                                        <div class="d-flex gap-2">
+
+                                            <a asp-action="Edit"
+                                               asp-route-id="@item.CustomerId"
+                                               class="btn btn-sm btn-primary">
+                                                Edit
+                                            </a>
+
+                                            <a asp-action="Delete"
+                                               asp-route-id="@item.CustomerId"
+                                               class="btn btn-sm btn-danger">
+                                                Delete
+                                            </a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,55 @@
+﻿@model Shop.Model.Order
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card">
+
+            <div class="card-header bg-danger">
+                <h4 class="text-white">Sipariş Sil</h4>
+            </div>
+
+            <div class="card-body">
+
+                <div class="alert alert-warning">
+                    Bu siparişi silmek istiyor musun?
+                </div>
+
+                <table class="table table-bordered">
+
+                    <tr>
+                        <th>Müşteri</th>
+                        <td>@Model.Customer?.FirstName</td>
+                    </tr>
+
+                    <tr>
+                        <th>Ürün</th>
+                        <td>@Model.Product?.ProductName</td>
+                    </tr>
+
+                    <tr>
+                        <th>Adet</th>
+                        <td>@Model.Quantity</td>
+                    </tr>
+                </table>
+
+                <form asp-action="Delete" method="post">
+
+                    <input asp-for="OrderId" type="hidden" />
+
+                    <button type="submit" class="btn btn-danger">
+                        Sil
+                    </button>
+
+                    <a asp-action="Index" class="btn btn-secondary">
+                        Vazgeç
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

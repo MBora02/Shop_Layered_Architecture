@@ -1,0 +1,81 @@
+﻿@model Shop.Model.Customer
+
+<div class="row">
+    <div class="col-md-12">
+
+        ```
+        <div class="card">
+
+            <div class="card-header">
+                <h4 class="card-title">Müşteri Güncelle</h4>
+            </div>
+
+            <div class="card-body">
+
+                <form asp-action="Edit" method="post">
+
+                    <input asp-for="CustomerId" type="hidden" />
+                    <input asp-for="RegisterDate" type="hidden" />
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Ad</label>
+                                <input asp-for="FirstName" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Soyad</label>
+                                <input asp-for="LastName" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Şehir</label>
+                                <input asp-for="City" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Yaş</label>
+                                <input asp-for="Age" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Telefon</label>
+                                <input asp-for="Phone" class="form-control" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-3">
+
+                        <button type="submit" class="btn btn-primary">
+                            Güncelle
+                        </button>
+
+                        <a asp-action="Index"
+                           class="btn btn-danger">
+                            Vazgeç
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+    ```
+
+</div>

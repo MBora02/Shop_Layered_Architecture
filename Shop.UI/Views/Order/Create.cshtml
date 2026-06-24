@@ -1,0 +1,70 @@
+﻿@model Shop.Model.Order
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card">
+
+            <div class="card-header">
+                <h4>Yeni Sipariş</h4>
+            </div>
+
+            <div class="card-body">
+
+                <form asp-action="Create" method="post">
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <label>Müşteri</label>
+                            <select asp-for="CustomerId"
+                                    asp-items="ViewBag.Musteriler"
+                                    class="form-control">
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>Ürün</label>
+                            <select asp-for="ProductId"
+                                    asp-items="ViewBag.Odalar"
+                                    class="form-control">
+                            </select>
+                        </div>
+
+                        <div class="col-md-4 mt-3">
+                            <label>Adet</label>
+                            <input asp-for="Quantity" class="form-control" />
+                        </div>
+
+                        <div class="col-md-4 mt-3">
+                            <label>Birim Fiyat</label>
+                            <input asp-for="UnitPrice" class="form-control" />
+                        </div>
+
+                        <div class="col-md-4 mt-3">
+                            <label>Durum</label>
+                            <input asp-for="Status" class="form-control" />
+                        </div>
+
+                    </div>
+
+                    <div class="mt-3">
+
+                        <button type="submit" class="btn btn-success">
+                            Kaydet
+                        </button>
+
+                        <a asp-action="Index" class="btn btn-danger">
+                            Vazgeç
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

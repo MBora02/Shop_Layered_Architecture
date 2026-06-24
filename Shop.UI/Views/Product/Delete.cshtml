@@ -1,0 +1,61 @@
+﻿@model Shop.Model.Product
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card">
+
+            <div class="card-header bg-danger">
+                <h4 class="card-title text-white">Ürün Sil</h4>
+            </div>
+
+            <div class="card-body">
+
+                <div class="alert alert-warning">
+                    Bu ürünü silmek istediğine emin misin?
+                </div>
+
+                <table class="table table-bordered">
+
+                    <tr>
+                        <th>Ürün Adı</th>
+                        <td>@Model.ProductName</td>
+                    </tr>
+
+                    <tr>
+                        <th>Kategori</th>
+                        <td>@Model.Category</td>
+                    </tr>
+
+                    <tr>
+                        <th>Fiyat</th>
+                        <td>@Model.UnitPrice</td>
+                    </tr>
+
+                    <tr>
+                        <th>Stok</th>
+                        <td>@Model.Stock</td>
+                    </tr>
+
+                </table>
+
+                <form asp-action="Delete" method="post">
+
+                    <input asp-for="ProductId" type="hidden" />
+
+                    <button type="submit" class="btn btn-danger">
+                        Sil
+                    </button>
+
+                    <a asp-action="Index" class="btn btn-secondary">
+                        Vazgeç
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
