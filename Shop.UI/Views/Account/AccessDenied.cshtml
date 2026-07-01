@@ -1,0 +1,139 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Erişim Engellendi - Shop Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="~/kaiadmin/assets/css/bootstrap.min.css" />
+    
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-highlight: rgba(255, 255, 255, 0.15);
+            --accent-danger: #ef4444;
+            --accent-secondary: #06b6d4;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            font-family: 'Public Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .error-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            z-index: 10;
+        }
+
+        .error-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid var(--glass-highlight);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        .error-icon {
+            font-size: 4rem;
+            color: var(--accent-danger);
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 10px rgba(239, 68, 68, 0.3));
+            animation: pulse 2s infinite alternate;
+        }
+
+        @@keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+
+        .error-card h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ffffff, #f1f5f9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .error-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn-home {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-home:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.45);
+            transform: translateY(-1px);
+            color: white;
+        }
+
+        .glowing-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: 1;
+            opacity: 0.12;
+        }
+
+        .blob-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent-danger);
+            top: 10%;
+            left: 10%;
+        }
+    </style>
+</head>
+<body>
+    <div class="glowing-blob blob-1"></div>
+
+    <div class="error-wrapper">
+        <div class="error-card">
+            <i class="fa-solid fa-triangle-exclamation error-icon"></i>
+            <h1>Yetkisiz Erişim</h1>
+            <p>Bu sayfayı görüntülemek için yetkiniz bulunmamaktadır. Admin yetkisi gerektiren bir alana erişmeye çalışıyor olabilirsiniz.</p>
+            <a href="/Home/Index" class="btn-home">
+                <i class="fa-solid fa-house me-2"></i> Ana Sayfaya Dön
+            </a>
+        </div>
+    </div>
+</body>
+</html>

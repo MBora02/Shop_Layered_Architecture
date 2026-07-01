@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Shop.Data.Data;
@@ -6,6 +7,7 @@ using Shop.Model;
 
 namespace Shop.UI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class OrderController : Controller
     {
         private readonly AppDbContext _context;

@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Shop.Data.Data;
 using Shop.Model.viewModel;
 
 namespace Shop.UI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ReportController : Controller
     {
         private readonly AppDbContext _context;

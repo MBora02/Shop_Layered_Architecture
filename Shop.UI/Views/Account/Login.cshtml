@@ -1,0 +1,320 @@
+@model Shop.UI.Controllers.LoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giriş Yap - Shop Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="~/kaiadmin/assets/css/bootstrap.min.css" />
+    
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-highlight: rgba(255, 255, 255, 0.15);
+            --accent-primary: #8b5cf6;
+            --accent-secondary: #06b6d4;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            font-family: 'Public Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .login-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 440px;
+            padding: 20px;
+            z-index: 10;
+        }
+
+        .login-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid var(--glass-highlight);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .login-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 15px rgba(139, 92, 246, 0.15);
+        }
+
+        .brand-logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand-logo i {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+        }
+
+        .brand-logo h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin: 0;
+            background: linear-gradient(to right, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-logo p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .form-label {
+            color: #cbd5e1;
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .input-group-custom {
+            position: relative;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-group-custom:focus-within {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.25);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .input-group-custom i {
+            color: var(--text-muted);
+            padding: 12px 16px;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .input-group-custom:focus-within i {
+            color: var(--accent-primary);
+        }
+
+        .form-control-custom {
+            background: transparent !important;
+            border: none !important;
+            color: var(--text-main) !important;
+            padding: 12px 16px 12px 0;
+            font-size: 0.95rem;
+            width: 100%;
+            outline: none;
+        }
+
+        .form-control-custom::placeholder {
+            color: #64748b;
+        }
+
+        .form-check-input {
+            background-color: transparent;
+            border-color: var(--glass-border);
+            cursor: pointer;
+        }
+
+        .form-check-input:checked {
+            background-color: var(--accent-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .form-check-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .btn-login {
+            background: linear-gradient(135deg, var(--accent-primary) 0%, #7c3aed 100%);
+            border: none;
+            color: white;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            width: 100%;
+            margin-top: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.45);
+            transform: translateY(-1px);
+        }
+
+        .btn-login:active {
+            transform: translateY(1px);
+        }
+
+        .validation-summary-errors {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            color: #fca5a5;
+            font-size: 0.85rem;
+        }
+
+        .validation-summary-errors ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .text-danger-custom {
+            color: #ef4444;
+            font-size: 0.8rem;
+            margin-top: 4px;
+            display: block;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .register-link a {
+            color: var(--accent-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .register-link a:hover {
+            color: #22d3ee;
+            text-decoration: underline;
+        }
+
+        /* Ambient glowing background blobs */
+        .glowing-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: 1;
+            opacity: 0.15;
+        }
+
+        .blob-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent-primary);
+            top: 10%;
+            left: 10%;
+        }
+
+        .blob-2 {
+            width: 350px;
+            height: 350px;
+            background: var(--accent-secondary);
+            bottom: 10%;
+            right: 10%;
+        }
+    </style>
+</head>
+<body>
+    <div class="glowing-blob blob-1"></div>
+    <div class="glowing-blob blob-2"></div>
+
+    <div class="login-wrapper">
+        <div class="login-card">
+            <div class="brand-logo">
+                <i class="fa-solid fa-shop"></i>
+                <h2>Shop Portal</h2>
+                <p>Hesabınıza giriş yapın</p>
+            </div>
+
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success bg-success text-white border-0" style="border-radius: 12px; font-size: 0.9rem;">
+                    <i class="fas fa-check-circle me-2"></i> @TempData["SuccessMessage"]
+                </div>
+            }
+
+            <form asp-action="Login" asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post" autocomplete="off">
+                @Html.AntiForgeryToken()
+
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div asp-validation-summary="ModelOnly" class="validation-summary-errors"></div>
+                }
+
+                <div class="mb-4">
+                    <label asp-for="Email" class="form-label"></label>
+                    <div class="input-group-custom">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input asp-for="Email" class="form-control-custom" placeholder="ornek@shop.com" required />
+                    </div>
+                    <span asp-validation-for="Email" class="text-danger-custom"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="Password" class="form-label"></label>
+                    <div class="input-group-custom">
+                        <i class="fa-solid fa-lock"></i>
+                        <input asp-for="Password" class="form-control-custom" placeholder="••••••••" required />
+                    </div>
+                    <span asp-validation-for="Password" class="text-danger-custom"></span>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <div class="form-check d-flex align-items-center">
+                        <input asp-for="RememberMe" class="form-check-input" />
+                        <label asp-for="RememberMe" class="form-check-label ms-2"></label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-login">
+                    <i class="fa-solid fa-right-to-bracket me-2"></i> Giriş Yap
+                </button>
+            </form>
+
+            <div class="register-link">
+                Hesabınız yok mu? <a asp-action="Register">Kayıt Olun</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/kaiadmin/assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="~/kaiadmin/assets/js/core/bootstrap.min.js"></script>
+</body>
+</html>

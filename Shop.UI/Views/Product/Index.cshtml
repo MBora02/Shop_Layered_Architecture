@@ -14,6 +14,15 @@
                         Yeni Ürün
                     </a>
                 </div>
+                <div class="mb-3">
+                    <a asp-controller="Product" asp-action="ExportToPdf" class="btn btn-danger">
+                        <i class="fa fa-file-pdf"></i> PDF Olarak İndir
+                    </a>
+                    <!-- YENİ: Excel Butonumuz -->
+                    <a asp-controller="Product" asp-action="ExportToExcel" class="btn btn-success">
+                        <i class="fa fa-file-excel"></i> Excel Olarak İndir
+                    </a>
+                </div>
             </div>
 
             <div class="card-body">
