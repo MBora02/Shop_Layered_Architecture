@@ -34,25 +34,41 @@ A professional, enterprise-grade Shop Management and Reporting System built on *
 - **📊 Dynamic Administrative Dashboard**
   - Instant overview cards for crucial store KPIs: Total Customers, Products, Orders, and Total Sales.
   - Interactive table displaying the 5 most recent orders with live status.
-  
-  ![Admin Dashboard](https://github-production-user-asset-6210df.s3.amazonaws.com/placeholder-dashboard.png)
-  *Instruction: Upload a screenshot of the main admin dashboard here*
+
+#Login & Register Page
+<img width="802" height="727" alt="image" src="https://github.com/user-attachments/assets/43fe8207-a492-4400-9202-e42b3b163c76" />
+<img width="571" height="776" alt="image" src="https://github.com/user-attachments/assets/694c0474-9f37-49f7-8449-aa5f29ead154" />
+
+#Main Page
+<img width="1597" height="846" alt="image" src="https://github.com/user-attachments/assets/4cf83396-bf5e-494d-aaa7-fde5a629220f" />
+
+#Admin Dashboard Main Page
+<img width="1910" height="845" alt="image" src="https://github.com/user-attachments/assets/1c4dd8b1-e9ac-4c08-8e17-edb6d2716bae" />
+
 
 - **📦 Inventory & Product Management**
   - Full CRUD lifecycle (Create, Read, Update, Delete) for products.
   - Critical stock alerts identifying products with stock level below safety thresholds (`CriticalStockLevel`).
   - Single-click PDF sheet export using QuestPDF and styled Excel spreadsheets using EPPlus.
 
-  ![Product Index](https://github-production-user-asset-6210df.s3.amazonaws.com/placeholder-products.png)
-  *Instruction: Upload a screenshot of the product catalog with export options here*
+#Admin Dashboard Product Page 
+<img width="1911" height="851" alt="image" src="https://github.com/user-attachments/assets/fba0527a-6d38-444d-aa98-33915785cdcb" />
+
 
 - **👥 Customer Relations**
   - Comprehensive customer registration details (First/Last Name, City, Age, Phone, Registration Date).
   - Clean client database list.
 
+#Admin Dashboard Customer Page 
+<img width="1903" height="831" alt="image" src="https://github.com/user-attachments/assets/8e4852d1-49ca-4896-85e4-44efaf6103cd" />
+
 - **🛒 Order Tracking**
   - Structured ordering pipeline mapping customer demands to products.
   - Real-time unit price snapshots and quantity-based totals calculation.
+
+#Admin Dashboard Order Page 
+<img width="1907" height="826" alt="image" src="https://github.com/user-attachments/assets/6b689993-728f-4294-ab74-d903654bdfe1" />
+
 
 - **📈 Advanced Business Reports**
   - Joined reporting queries analyzing sales data:
@@ -62,9 +78,11 @@ A professional, enterprise-grade Shop Management and Reporting System built on *
     - **Customer Order Count**: High-level aggregation showing order frequencies per client.
     - **Critical Stock Alert Report**: Lists all under-stocked products requiring immediate replenishment.
 
-  ![Reports View](https://github-production-user-asset-6210df.s3.amazonaws.com/placeholder-reports.png)
-  *Instruction: Upload a screenshot of the reporting panel here*
+#Admin Dashboard Report Page 
+<img width="1902" height="816" alt="image" src="https://github.com/user-attachments/assets/96276ba1-870b-4b3b-a8de-c96b3b99c436" />
 
+#Admin Dashboard Example Report Page 
+<img width="1907" height="781" alt="image" src="https://github.com/user-attachments/assets/215adfba-5ba9-456f-9a74-4c2c671e56f4" />
 ---
 
 ## 🏗️ Architecture & Folder Structure
