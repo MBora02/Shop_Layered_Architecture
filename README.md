@@ -36,7 +36,7 @@ A professional, enterprise-grade Shop Management and Reporting System built on *
   - Interactive table displaying the 5 most recent orders with live status.
 
 #Login & Register Page
-<img width="802" height="727" alt="image" src="https://github.com/user-attachments/assets/43fe8207-a492-4400-9202-e42b3b163c76" />
+<img width="571" height="776" alt="image" src="https://github.com/user-attachments/assets/43fe8207-a492-4400-9202-e42b3b163c76" />
 <img width="571" height="776" alt="image" src="https://github.com/user-attachments/assets/694c0474-9f37-49f7-8449-aa5f29ead154" />
 
 #Main Page
